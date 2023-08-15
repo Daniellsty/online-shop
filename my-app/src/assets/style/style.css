@@ -1,0 +1,16 @@
+@font-face {
+    font-family: myFirstFont;
+    src: url('./FrenklinsDisplayTrial.otf');
+  }
+  
+  body {
+    font-family: myFirstFont;
+    margin: 0;
+    padding: 0;
+  }
+
+  *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
