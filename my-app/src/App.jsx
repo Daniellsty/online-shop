@@ -1,4 +1,6 @@
 import { useEffect, useState } from 'react'
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import Home from './pages/Home/Home';
 
 function App() {
 
@@ -7,9 +9,12 @@ function App() {
 
   
   return (
-    <div>
-      <h1>hello world</h1>
-    </div>
+    <Router>
+    <Routes>
+      <Route path="/" element={<Home/>} />
+     
+    </Routes>
+</Router>
   )
 }
 
