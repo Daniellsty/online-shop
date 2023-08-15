@@ -5,6 +5,7 @@ import { AiFillHome } from "react-icons/ai";
 import { BsFillCartFill } from "react-icons/bs";
 import { AiFillShopping } from "react-icons/ai";
 import { HiInformationCircle } from "react-icons/hi";
+import { BiLogIn } from "react-icons/bi";
 
 import { useEffect, useState } from "react";
 const Navigation = () => {
@@ -22,7 +23,7 @@ const Navigation = () => {
     
 
     return ( 
-        <div className="overflow-x-hidden" >
+        <div>
           <header  className="text-primary shadow-lg " >
                 <nav className="flex justify-between w-full bg-slate-100 px-[10%] ">
                 <ul className="flex justify-between items-center  ">
@@ -52,7 +53,7 @@ const Navigation = () => {
                        
                         <li className="hidden sm:block  p-2 rounded hover:bg-white">
                             <NavLink    >
-                             <p>products</p>
+                             <p>signUp</p>
                             </NavLink>
                            
                         </li>
@@ -61,7 +62,7 @@ const Navigation = () => {
                          
                            
                         </li>
-                      <li className=" sm:hidden ">
+                      <li className="z-20 sm:hidden ">
                         <AiOutlineMenu className="hover:cursor-pointer" onClick={()=> setOpen(prev=> !prev) } size={22}/>
                         <div  className={  `${!open ? 'translate-x-[420px] ' : 'translate-x-[0px]' } 'flex justify-between transition-all ease-in-out duration-700 delay-50 z-10  min-h-full bg-white fixed right-0 top-0 w-2/3 ' `}  >
                                 <div className="  mt-5 ">
@@ -73,14 +74,14 @@ const Navigation = () => {
                         <li className="my-2 flex items-center ">
                             <AiFillHome className="mr-3"/>
                             <NavLink  to='/' >
-                                <p className="  leading-12 text-center  hover:border-[#7e22ce] rounded">home</p>
+                                <p className="  leading-12 text-center   rounded">home</p>
                             </NavLink>
                         </li>
                                     <li className="my-2 flex items-center">
                                 <BsFillCartFill className="mr-3"/>
                             <NavLink  to='/cart'  >
                                 
-                              <p className="  leading-10 text-center hover:border-[#7e22ce] rounded">cart</p>
+                              <p className="  leading-10 text-center  rounded">cart</p>
 
                                 
                          
@@ -88,16 +89,16 @@ const Navigation = () => {
                         </li>
                        
                         <li className="my-2 flex items-center">
-                            <AiFillShopping className="mr-2"/>
-                            <NavLink    >
-                             <p className="  leading-10 text-center hover:border-[#7e22ce] rounded">products</p>
+                            <BiLogIn className="mr-2"/>
+                            <NavLink  to='/products'  >
+                             <p className="  leading-10 text-center  rounded">signUp</p>
                             </NavLink>
                            
                         </li>
                         <li className="my-2 flex items-center">
                             <HiInformationCircle  className="mr-2 "/>
-                            <NavLink>
-                             <p className="leading-10 text-center hover:border-[#7e22ce] rounded">about us</p>
+                            <NavLink to='/about us'>
+                             <p className="leading-10 text-center hover:cursor-pointer ">about us</p>
                             </NavLink>
                            
                         </li>
