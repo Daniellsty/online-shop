@@ -25,15 +25,15 @@ const Navigation = () => {
 
     return ( 
         
-        <>
-          <header  className="text-primary   sticky z-20 top-0 bg-navbar backdrop-blur-[8px]  shadow-navbar-shadow  ">
-                <nav className="flex  h-full justify-between    px-[10%] ">
-                <ul className="flex  justify-between items-center  ">
+        < >
+          <div  className="text-primary w-full  sticky z-10 top-0 bg-navbar backdrop-blur-[8px]  shadow-navbar-shadow  ">
+                <nav className="flex w-full h-full justify-between  px-[10%] overflow-hidden">
+                <ul className="flex  justify-between items-center">
                         <li className="p-2 rounded hover:bg-white">
                            
                             <NavLink to='/' >Home</NavLink>
                         </li>
-                    <li className="ml-10  text-center align-center leading-10 h-10 w-12 rounded hover:bg-white hover:border-none ">
+                    <li className="ml-10  text-center align-center leading-10 h-10 w-12 rounded hover:bg-white  ">
                             <NavLink  to='/cart'  >
                                 
                               <p>cart</p>
@@ -64,9 +64,17 @@ const Navigation = () => {
                          
                            
                         </li>
-                      <li className=" sm:hidden w-full">
+                      <li className=" sm:hidden">
                         <AiOutlineMenu className="hover:cursor-pointer " onClick={()=> setOpen(prev=> !prev) } size={22}/>
-                        <div  className={  `${!open ? ' translate-x-[420px] ' : ' translate-x-[0px] ' } 'flex justify-between transition-all ease-in-out duration-700 delay-50   h-screen bg-white  fixed right-0 top-0 w-1/3  ' `}  >
+                        
+                           
+                      </li>
+                    
+                    </ul>
+                    
+                </nav>
+                <section className=" sm:hidden">
+                        <div  className={  `${!open ? ' translate-y-[-800px] ' : 'translate-y-[0px]  ' } 'flex justify-between transition-all ease-in-out duration-700 delay-50   h-screen bg-white  fixed right-0   top-0  w-[150px]  ' `}  >
                                 <div className="  mt-5 ">
                                 <div className="border-b-2  border-gray-200 w-full py-[10px]">
                                 <GiCancel className="ml-2 hover:cursor-pointer" onClick={()=> setOpen(prev=> !prev) }  size={22}/>
@@ -107,12 +115,10 @@ const Navigation = () => {
                                     </ul>
                                 </div>
                             </div>
-                      </li>
-                    
-                    </ul>
-                    
-                </nav>
-            </header>
+
+                </section>
+
+            </div>
             </>
          
        
