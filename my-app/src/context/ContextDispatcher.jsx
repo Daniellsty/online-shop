@@ -9,7 +9,7 @@ export function reducerHandler(state, action) {
         });
   
         if (index < 0) {
-          state.cart.push({ ...action.cart, quantity: 1 });
+          state.cart.push({ ...action.cart, quantity: 0 });
           return { ...state, cart: updatedCart, total:state.total + action.cart.price };
         } else {
           const updatedItem = { ...updatedCart[index] };

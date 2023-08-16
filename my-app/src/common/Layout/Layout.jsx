@@ -1,10 +1,12 @@
 import Navigation from "../../components/Navigation/Navigation";
+import Section from "../../components/Section/Section";
 
 
 const Layout = ({children}) => {
     return ( 
-        <div>
+        <div >
             <Navigation/>
+            <Section/>
             {children}
         </div>
      );

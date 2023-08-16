@@ -1,13 +1,14 @@
 import Layout from "../../common/Layout/Layout";
-import { useCart } from "../../context/ContextProvider";
+import CartSummary from "../../components/CartSummary/CartSummary";
 
 const Cart = () => {
-    const datas = useCart()
-    console.log(datas);
+ 
     return ( 
         <div>
-            <Layout/>
+            <Layout>
 
+            <CartSummary/>
+            </Layout>
         </div>
      );
 }

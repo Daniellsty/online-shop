@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
 import Layout from "../../common/Layout/Layout";
-import axios from 'axios'
+import axios from 'axios';
+
 import { useCartDispatcher } from "../../context/ContextProvider";
+import Section from "../../components/Section/Section";
 const Home = () => {
 
   const [product,setProduct] = useState([])
@@ -42,10 +44,7 @@ const Home = () => {
        
 
             <Layout>
-                  <div className="text-center flex flex-col items-center justify-center w-full h-[400px] bg-shop-nav bg-center bg-no-repeat relative bg-cover  before:conten-[''] before:absolute before:w-full before:h-full before:block before:bg-bg-image ">
-                    <h1 className="text-white z-10">Noco shop</h1>
-                    <h1 className="text-white z-10 text-xl">the most popular and famous shop</h1>
-                </div>
+                
           <div className="mt-[50px] grid  gap-10 grid-auto-fit px-[10%]  ">
           {product.map((item)=>{
                return(
