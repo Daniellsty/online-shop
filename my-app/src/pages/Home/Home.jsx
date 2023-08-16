@@ -8,7 +8,7 @@ const Home = () => {
   const [loading,setLoading] = useState(false)
   
   const dispatch = useCartDispatcher()
-  console.log(product);
+  
   const getDatas= async ()=>{
       try {
           const{data} = await axios.get('https://fakestoreapi.com/products')
@@ -23,8 +23,6 @@ const Home = () => {
   useEffect(() => {
         getDatas()
     }, []);
-
-   
 
     if(!loading) {
         return(
