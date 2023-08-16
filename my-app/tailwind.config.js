@@ -7,9 +7,13 @@ export default {
   theme: {
     extend: {
       colors: {
-        'navbar': 'rgba(212, 228, 228, 0.523)',
+         'navbar': 'rgba(255, 255, 255, 0.25)',
+         'navbar-shadow':'0 4px 30px rgba(0, 0, 0, 0.1)',
+         'navbar-filter':'blur(5px)',
+         'webkit-filter':'blur(5px)',
          'primary':'#374151',
-         'bg-image':'rgba(0, 0, 0, 0.37)'
+         'bg-image':'rgba(0, 0, 0, 0.57)',
+
       },
       backgroundImage:{
        
@@ -18,6 +22,8 @@ export default {
       }
     },
   },
-  plugins: [],
+  plugins: [
+    require('@shrutibalasa/tailwind-grid-auto-fit'),
+  ],
 }
 

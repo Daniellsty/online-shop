@@ -6,8 +6,9 @@ import { BsFillCartFill } from "react-icons/bs";
 import { AiFillShopping } from "react-icons/ai";
 import { HiInformationCircle } from "react-icons/hi";
 import { BiLogIn } from "react-icons/bi";
-
 import { useEffect, useState } from "react";
+
+import myimg from  '../../assets/react.svg'
 const Navigation = () => {
 
     const [open,setOpen] = useState(false)
@@ -23,11 +24,12 @@ const Navigation = () => {
     
 
     return ( 
-        <div>
-          <header  className="text-primary shadow-lg " >
-                <nav className="flex justify-between w-full bg-slate-100 px-[10%] ">
-                <ul className="flex justify-between items-center  ">
-                        <li className="  p-2 rounded hover:bg-white">
+        
+        <>
+          <header  className="text-primary   sticky z-20 top-0 bg-navbar backdrop-blur-[8px]  shadow-navbar-shadow  ">
+                <nav className="flex  h-full justify-between    px-[10%] ">
+                <ul className="flex  justify-between items-center  ">
+                        <li className="p-2 rounded hover:bg-white">
                            
                             <NavLink to='/' >Home</NavLink>
                         </li>
@@ -41,18 +43,18 @@ const Navigation = () => {
                             </NavLink>
                         </li>
                     </ul>
-                    <ul className="flex sm:w-1/2  justify-between items-center py-8  ">
+                    <ul className="flex sm:w-1/2 justify-between items-center py-8  ">
 
                     
                         <li className="hidden sm:block  p-2 rounded hover:bg-white">
-                            <NavLink    >
+                            <NavLink to='/aboutus'  >
                              <p>about us</p>
                             </NavLink>
                            
                         </li>
                        
                         <li className="hidden sm:block  p-2 rounded hover:bg-white">
-                            <NavLink    >
+                            <NavLink to='/singup'   >
                              <p>signUp</p>
                             </NavLink>
                            
@@ -62,24 +64,24 @@ const Navigation = () => {
                          
                            
                         </li>
-                      <li className="z-20 sm:hidden ">
-                        <AiOutlineMenu className="hover:cursor-pointer" onClick={()=> setOpen(prev=> !prev) } size={22}/>
-                        <div  className={  `${!open ? 'translate-x-[420px] ' : 'translate-x-[0px]' } 'flex justify-between transition-all ease-in-out duration-700 delay-50 z-10  min-h-full bg-white fixed right-0 top-0 w-2/3 ' `}  >
+                      <li className=" sm:hidden w-full">
+                        <AiOutlineMenu className="hover:cursor-pointer " onClick={()=> setOpen(prev=> !prev) } size={22}/>
+                        <div  className={  `${!open ? ' translate-x-[420px] ' : ' translate-x-[0px] ' } 'flex justify-between transition-all ease-in-out duration-700 delay-50   h-screen bg-white  fixed right-0 top-0 w-1/3  ' `}  >
                                 <div className="  mt-5 ">
                                 <div className="border-b-2  border-gray-200 w-full py-[10px]">
                                 <GiCancel className="ml-2 hover:cursor-pointer" onClick={()=> setOpen(prev=> !prev) }  size={22}/>
 
                                 </div>
-                                    <ul className="mt-10 flex flex-col items-start ml-5 ">
+                                    <ul className="mt-10 flex flex-col items-start ml-5 z-10">
                         <li className="my-2 flex items-center ">
                             <AiFillHome className="mr-3"/>
                             <NavLink  to='/' >
                                 <p className="  leading-12 text-center   rounded">home</p>
                             </NavLink>
                         </li>
-                                    <li className="my-2 flex items-center">
+                                    <li   className="my-2 flex items-center">
                                 <BsFillCartFill className="mr-3"/>
-                            <NavLink  to='/cart'  >
+                            <NavLink to='/cart'  >
                                 
                               <p className="  leading-10 text-center  rounded">cart</p>
 
@@ -111,11 +113,10 @@ const Navigation = () => {
                     
                 </nav>
             </header>
-            <div className="text-center flex flex-col items-center justify-center w-full h-[400px] bg-shop-nav bg-center bg-no-repeat bg-cover relative before:conten-[''] before:absolute before:w-full before:h-full before:block before:bg-bg-image ">
-                <h1 className="text-white z-10">Noco shop</h1>
-                <h1 className="text-white z-10 text-xl">the most popular and famous shop</h1>
-            </div>
-        </div>
+            </>
+         
+       
+       
      );
 }
  
