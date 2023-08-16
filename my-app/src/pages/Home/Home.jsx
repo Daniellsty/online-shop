@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import Layout from "../../common/Layout/Layout";
 import axios from 'axios';
 
-import { useCartDispatcher } from "../../context/ContextProvider";
+import { useCart, useCartDispatcher } from "../../context/ContextProvider";
 import Section from "../../components/Section/Section";
 const Home = () => {
 
@@ -10,7 +10,7 @@ const Home = () => {
   const [loading,setLoading] = useState(false)
   
   const dispatch = useCartDispatcher()
-  
+  const carts = useCart()
   const getDatas= async ()=>{
       try {
           const{data} = await axios.get('https://fakestoreapi.com/products')
@@ -38,6 +38,12 @@ const Home = () => {
        dispatch({type:"ADD_TO_CART",cart:product})
 
     }
+
+    const toggle=(product)=>{
+
+       return carts.cart.find((item)=> item.id === product.id )
+
+    }
     
  
     return ( 
@@ -62,7 +68,8 @@ const Home = () => {
                     <h1 className="w-full px-[30px] text-center mx-auto text-justify">$ {item.title}</h1>
                 </div>
                 <div className="my-5">
-                    <button onClick={()=> addToCart(item)} className="px-[6px] py-[5px] bg-[#6d28d9] hover:cursor-pointer rounded  text-[#f6f6f6]">add to cart</button>
+                    
+                    <button onClick={()=> addToCart(item)} className="px-[6px] py-[5px] bg-[#6d28d9] hover:cursor-pointer rounded  text-[#f6f6f6]">{toggle(item) ? 'in cart' : 'Add to cart'  }</button>
                 </div>
             </div>
                )
