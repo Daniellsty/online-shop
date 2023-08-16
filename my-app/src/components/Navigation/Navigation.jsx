@@ -26,8 +26,8 @@ const Navigation = () => {
     return ( 
         
         < >
-          <div  className="text-primary w-full  sticky z-10 top-0 bg-navbar backdrop-blur-[8px]  shadow-navbar-shadow  ">
-                <nav className="flex w-full h-full justify-between  px-[10%] overflow-hidden">
+          <div  className="text-primary h-full sticky z-20 top-0   overflow-hidden">
+                <nav className="flex w-full h-[80px] justify-between  px-[10%]  bg-navbar backdrop-blur-[8px]  shadow-navbar-shadow">
                 <ul className="flex  justify-between items-center">
                         <li className="p-2 rounded hover:bg-white">
                            
@@ -73,8 +73,8 @@ const Navigation = () => {
                     </ul>
                     
                 </nav>
-                <section className=" sm:hidden">
-                        <div  className={  `${!open ? ' translate-y-[-800px] ' : 'translate-y-[0px]  ' } 'flex justify-between transition-all ease-in-out duration-700 delay-50   h-screen bg-white  fixed right-0   top-0  w-[150px]  ' `}  >
+                <section className=" sm:hidden h-full">
+                        <div  className={  `${!open ? ' translate-x-[200px] ' : 'translate-x-[0px]  ' } 'flex justify-between transition-all ease-in-out duration-700 delay-50   h-full bg-white  fixed right-0   top-0  w-[150px]  ' `}  >
                                 <div className="  mt-5 ">
                                 <div className="border-b-2  border-gray-200 w-full py-[10px]">
                                 <GiCancel className="ml-2 hover:cursor-pointer" onClick={()=> setOpen(prev=> !prev) }  size={22}/>
