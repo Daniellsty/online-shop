@@ -61,9 +61,9 @@ const CartSummary = () => {
         <h1 className="pt-5 pl-2 border-b border-slate-500">cart summary</h1>
         <div className="p-5">
 
-         <h1>total price is {carts.total}</h1>
+         <h1>total price is  {(carts.total).toFixed(2)}</h1>
           <h1>
-            net price is {carts.total}
+            net price is {(carts.total).toFixed(2)}
           </h1>
           <NavLink to='/signup'>
 

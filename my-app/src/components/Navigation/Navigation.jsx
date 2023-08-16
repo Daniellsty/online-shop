@@ -9,9 +9,12 @@ import { BiLogIn } from "react-icons/bi";
 import { useEffect, useState } from "react";
 
 import myimg from  '../../assets/react.svg'
+import { useCart } from "../../context/ContextProvider";
 const Navigation = () => {
 
     const [open,setOpen] = useState(false)
+
+    const carts = useCart()
 
     useEffect(() => {
         if (open) {
@@ -34,8 +37,9 @@ const Navigation = () => {
                             <NavLink to='/' >Home</NavLink>
                         </li>
                     <li className="ml-10  text-center align-center leading-10 h-10 w-12 rounded hover:bg-white  ">
-                            <NavLink  to='/cart'  >
-                                
+                            <NavLink className='flex relative' to='/cart'  >
+                              
+                              <span className="absolute right-[0px] bottom-6 bg-red-600 rounded-full leading-[35px] h-[30px] w-[30px] text-white">{carts.cart.length}</span>
                               <p>cart</p>
 
                                 
