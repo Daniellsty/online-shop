@@ -4,11 +4,12 @@ import axios from 'axios'
 const Home = () => {
 
   const [product,setProduct] = useState([])
-
+  const [loading,setLoading] = useState(false)
   
   const getDatas= async ()=>{
       try {
           const{data} = await axios.get('https://fakestoreapi.com/products')
+          setLoading(true)
           setProduct(data)
       } catch (error) {
 
@@ -20,8 +21,16 @@ const Home = () => {
         getDatas()
     }, []);
 
-    console.log(product);
+   
 
+    if(!loading) {
+        return(
+
+            <div className="absolute top-[50%] left-[50%]"><p className="text-2xl">loading...</p></div>
+        )
+    } 
+    
+ 
     return ( 
        
 
