@@ -104,7 +104,7 @@ const Navigation = () => {
                        
                         <li className="my-2 flex items-center">
                             <BiLogIn className="mr-2"/>
-                            <NavLink  to='/products'  >
+                            <NavLink  to='/singup'  >
                              <p className="  leading-10 text-center  rounded">signUp</p>
                             </NavLink>
                            

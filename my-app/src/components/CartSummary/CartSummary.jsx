@@ -57,7 +57,7 @@ const CartSummary = () => {
         })}
       
       </div>
-        <div className=" h-[200px] xl:w-1/3  bg-white mx-[2%] mb-6 rounded xl:my-6">
+        <div className=" h-[200px] xl:w-1/3  bg-white mx-[2%] mb-6 rounded my-6">
         <h1 className="pt-5 pl-2 border-b border-slate-500">cart summary</h1>
         <div className="p-5">
 
