@@ -1,8 +1,7 @@
 export function reducerHandler(state, action) {
     switch (action.type) {
       case "ADD_TO_CART": {
-        // console.log(action);
-        // console.log(state);
+        
         const updatedCart = [...state.cart];
         const index = updatedCart.findIndex((item) => {
           return item.id === action.cart.id;
@@ -42,6 +41,7 @@ export function reducerHandler(state, action) {
           return { ...state, cart: updatedCart,total:state.total - action.item.price  };
         }
       }
+
     
       default:
         return state;

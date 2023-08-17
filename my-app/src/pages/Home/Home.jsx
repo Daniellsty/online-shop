@@ -3,15 +3,23 @@ import Layout from "../../common/Layout/Layout";
 import axios from 'axios';
 import { useCart, useCartDispatcher } from "../../context/ContextProvider";
 import { useData } from "../../context/ContextData";
+import Select from "../../components/Select/Select";
 
 const Home = () => {
 
-  
+   
   const [loading,setLoading] = useState(false)
   const dispatch = useCartDispatcher()
   const data = useData()
   const carts = useCart()
+  
+  const {filterProduct,filteredProducts} = data
+  console.log(filteredProducts);
 
+  const selectHandler=(e)=>{
+
+    filterProduct(e)
+  }
 
 
   useEffect(()=>{
@@ -37,14 +45,24 @@ const Home = () => {
 
     }
     
+   
+
+
  
+
     return ( 
        
 
             <Layout>
-                
+          <select name="" id="" onChange={(e)=>selectHandler(e)}>
+                <option value="all">select product</option>
+                <option value="men's clothing">men s wear</option>
+                <option value="women's clothing">women wear</option>
+                <option value="electronics">electronic</option>
+                <option value="jewelery">jewerly</option>
+            </select>
           <div className="mt-[50px] grid  gap-10 grid-auto-fit px-[10%]  ">
-          {data.map((item)=>{
+          { filteredProducts.map((item)=>{
                return(
                 <div key={item.id} className="shadow shadow-xl transform  duration-200 hover:scale-110 my-[20px] bg-white flex flex-col items-center justify-center  pt-[10%] rounded-[10px]">
                     <div className="p-[20px] h-[300px]">

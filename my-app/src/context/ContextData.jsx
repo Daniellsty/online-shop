@@ -5,12 +5,13 @@ const DataStateDispatcher = createContext();
 
 const DataProvider = ({ children }) => {
     const [product,setProduct] = useState([])
-
+    const [filteredProducts,setFilteredProducts] = useState([])
     const getDatas= async ()=>{
         try {
-            const{data} = await axios.get('https://fakestoreapi.com/products')
-           
+            const {data} = await axios.get('https://fakestoreapi.com/products')
             setProduct(data)
+          
+
         } catch (error) {
   
             console.log(error);
@@ -19,19 +20,34 @@ const DataProvider = ({ children }) => {
     }
     useEffect(() => {
           getDatas()
+         
       }, []);
 
-   
+      useEffect(() => {
+       
 
+        setFilteredProducts(product)
+    }, [product]);
 
-   
+      const filterProduct=(e)=>{
+        const value = e.target.value
+        if(value=== 'all'){
+          setFilteredProducts(product)
+        }else{
+
+          const filteredProduct = product.filter((item)=>{
+             return item.category === value
+          })
+  
+          setFilteredProducts(filteredProduct)
+        }
+      }
+      
 
  
   return (
-      <DataState.Provider value={product}>
-      <DataStateDispatcher.Provider value={setProduct}>
-        {children}
-      </DataStateDispatcher.Provider>
+      <DataState.Provider value={{filterProduct,filteredProducts}}>
+      {children}
     </DataState.Provider>
   );
 };
