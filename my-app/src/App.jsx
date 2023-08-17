@@ -4,12 +4,14 @@ import Home from './pages/Home/Home';
 import ContextProvider from './context/ContextProvider';
 import Cart from './pages/Cart/Cart';
 import SingUp from './pages/SignUp/SignUp';
+import DataProvider from './context/ContextData';
 
 function App() {
   
   
   return (
 
+    <DataProvider>
   <ContextProvider>
 
     <Router>
@@ -21,6 +23,8 @@ function App() {
     </Routes>
 </Router>
   </ContextProvider>
+
+    </DataProvider>
 
    
   )

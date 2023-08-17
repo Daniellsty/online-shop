@@ -1,35 +1,27 @@
 import { useEffect, useState } from "react";
 import Layout from "../../common/Layout/Layout";
 import axios from 'axios';
-
 import { useCart, useCartDispatcher } from "../../context/ContextProvider";
-import Section from "../../components/Section/Section";
+import { useData } from "../../context/ContextData";
+
 const Home = () => {
 
-  const [product,setProduct] = useState([])
-  const [loading,setLoading] = useState(false)
   
+  const [loading,setLoading] = useState(false)
   const dispatch = useCartDispatcher()
+  const data = useData()
   const carts = useCart()
-  const getDatas= async ()=>{
-      try {
-          const{data} = await axios.get('https://fakestoreapi.com/products')
-          setLoading(true)
-          setProduct(data)
-      } catch (error) {
 
-          console.log(error);
-          
-      }
-  }
-  useEffect(() => {
-        getDatas()
-    }, []);
+
+
+  useEffect(()=>{
+    setLoading(true)
+  },[])
 
     if(!loading) {
         return(
 
-            <div className="absolute top-[50%] left-[50%]"><p className="text-2xl">loading...</p></div>
+            <div className="absolute top-[50%] left-[50%]"><h1 className="text-3xl font-bold">loading...</h1></div>
         )
     } 
 
@@ -52,7 +44,7 @@ const Home = () => {
             <Layout>
                 
           <div className="mt-[50px] grid  gap-10 grid-auto-fit px-[10%]  ">
-          {product.map((item)=>{
+          {data.map((item)=>{
                return(
                 <div key={item.id} className="shadow shadow-xl transform  duration-200 hover:scale-110 my-[20px] bg-white flex flex-col items-center justify-center  pt-[10%] rounded-[10px]">
                     <div className="p-[20px] h-[300px]">
