@@ -11,8 +11,8 @@ const Product = () => {
    
   const [loading,setLoading] = useState(false)
   const dispatch = useCartDispatcher()
-  const data = useData()
   const carts = useCart()
+  const data = useData()
   
   const {filterProduct,searchProduct,arrayToFilter,setArrayToFilter,searchValue,selectValue,setSelectValue,setSearchValue,product} = data
   

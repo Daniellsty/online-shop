@@ -2,7 +2,7 @@ import { useEffect, useState  } from "react";
 import axios from 'axios'
 import ButtonPaginate from "./ButtonPaginate";
 import { useData } from "../../context/ContextData";
-import { useCart } from "../../context/ContextProvider";
+import { useCart, useCartDispatcher } from "../../context/ContextProvider";
 
 const Pagination=()=> {
   const [paginate , setPagiante ] = useState([])
@@ -11,7 +11,7 @@ const Pagination=()=> {
   const [currentPage,setCurrentPage] = useState(5)
   const [showPage,setShowPage] = useState([])
 
-
+  const dispatch = useCartDispatcher()
   const data = useData()
  
   
@@ -25,7 +25,7 @@ const Pagination=()=> {
 
   }, [product]);
 
-
+  
 
   const lastIndexOfPage = perPage * currentPage ;
   const firstIndexOfPage = lastIndexOfPage - currentPage;
