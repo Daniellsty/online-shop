@@ -1,4 +1,4 @@
-import { NavLink,   } from "react-router-dom";
+import { Link, NavLink,   } from "react-router-dom";
 import { GiCancel } from "react-icons/gi";
 import { AiOutlineMenu } from "react-icons/ai";
 import { AiFillHome } from "react-icons/ai";
@@ -26,6 +26,7 @@ const Navigation = () => {
       }, [open]);
     
 
+      
     return ( 
         
         < >
@@ -33,7 +34,8 @@ const Navigation = () => {
                 <nav className="flex w-full h-[80px] justify-between  px-[10%]  bg-navbar backdrop-blur-[8px]  shadow-navbar-shadow">
                 <ul className="flex  justify-between items-center">
                         <li className="p-2 rounded hover:bg-white">
-                           
+                           {/* <Link to="/">Home</Link> */}
+
                             <NavLink to='/' >Home</NavLink>
                         </li>
                     <li className="m-10  text-center align-center leading-10 h-10 px-[12px] rounded hover:bg-white  ">
@@ -49,7 +51,13 @@ const Navigation = () => {
                     </ul>
                     <ul className="flex sm:w-1/2 justify-between items-center py-8  ">
 
-                    
+                    <li className="hidden sm:block  p-2 rounded hover:bg-white">
+                    <NavLink to='/product'  >
+                             <p>product</p>
+                            </NavLink>
+                         
+                           
+                        </li>
                         <li className="hidden sm:block  p-2 rounded hover:bg-white">
                             <NavLink to='/aboutus'  >
                              <p>about us</p>
@@ -63,11 +71,7 @@ const Navigation = () => {
                             </NavLink>
                            
                         </li>
-                        <li className="hidden sm:block  p-2 rounded ">
-                             <p>noco shop</p>
-                         
-                           
-                        </li>
+                      
                       <li className=" sm:hidden">
                         <AiOutlineMenu className="hover:cursor-pointer " onClick={()=> setOpen(prev=> !prev) } size={22}/>
                         
@@ -101,7 +105,13 @@ const Navigation = () => {
                          
                             </NavLink>
                         </li>
-                       
+                        <li className="my-2 flex items-center">
+                            <BiLogIn className="mr-2"/>
+                            <NavLink  to='/product'  >
+                             <p className="  leading-10 text-center  rounded">product</p>
+                            </NavLink>
+                           
+                        </li>
                         <li className="my-2 flex items-center">
                             <BiLogIn className="mr-2"/>
                             <NavLink  to='/singup'  >
