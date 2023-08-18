@@ -75,15 +75,29 @@ const Home = () => {
        
 
             <Layout>
-          <select name="" id="" onChange={(e)=>selectHandler(e)}>
-                <option value="all">select product</option>
-                <option value="men's clothing">men s wear</option>
-                <option value="women's clothing">women wear</option>
-                <option value="electronics">electronic</option>
-                <option value="jewelery">jewerly</option>
-            </select>
+            <div className="px-[9%]">
 
-            <input type="text" onChange={(e)=> inputHandler(e)} />
+          
+           <form action="" className="py-5  item-center">
+
+        <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select the category products </label>
+        <div class="flex lg:flex-row flex-col gap-5 my-5 ">
+          
+<select onChange={(e)=>selectHandler(e)} id="countries" class="w-2/3  lg:w-1/2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+  <option selected value='all'>select products</option>
+  <option selected value="all">all products</option>
+  <option value="men's clothing">men  wear</option>
+  <option value="women's clothing">women wear</option>
+  <option value="electronics">electronic</option>
+  <option value="jewelery">jewerly</option>
+</select>
+          <div className="w-1/3 lg:w-1/2">
+
+            <input className="rounded w-full" placeholder="search prodcuts ...." type="text" onChange={(e)=> inputHandler(e)} />
+          </div>
+        </div>
+           </form>
+            </div>
           <div className="mt-[50px] grid  gap-10 grid-auto-fit px-[10%]  ">
           {arrayToFilter && arrayToFilter.map((item)=>{
                return(

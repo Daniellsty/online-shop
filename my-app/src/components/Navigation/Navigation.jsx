@@ -36,10 +36,10 @@ const Navigation = () => {
                            
                             <NavLink to='/' >Home</NavLink>
                         </li>
-                    <li className="ml-10  text-center align-center leading-10 h-10 w-12 rounded hover:bg-white  ">
+                    <li className="m-10  text-center align-center leading-10 h-10 px-[12px] rounded hover:bg-white  ">
                             <NavLink className='flex relative' to='/cart'  >
                               
-                              <span className="absolute right-[0px] bottom-6 bg-red-600 rounded-full leading-[35px] h-[30px] w-[30px] text-white">{carts.cart.length}</span>
+                              <span className="absolute right-[-20px] bottom-6 text-center  bg-red-600 rounded-full leading-[30px] w-[30px] w-[30px] text-white">{carts.cart.length}</span>
                               <p>cart</p>
 
                                 
