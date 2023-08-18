@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useReducer, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import axios from 'axios';
 const DataState = createContext();
 const DataStateDispatcher = createContext();
@@ -6,11 +6,18 @@ const DataStateDispatcher = createContext();
 const DataProvider = ({ children }) => {
     const [product,setProduct] = useState([])
     const [filteredProducts,setFilteredProducts] = useState([])
+    const [searchProducts,setSearchProducts] = useState([])
+    const [arrayToFilter,setArrayToFilter] = useState([])
+  
+   
+  const [searchValue,setSearchValue] = useState('') 
+  const [selectValue,setSelectValue] = useState('')
+  
     const getDatas= async ()=>{
         try {
             const {data} = await axios.get('https://fakestoreapi.com/products')
             setProduct(data)
-          
+         
 
         } catch (error) {
   
@@ -23,30 +30,43 @@ const DataProvider = ({ children }) => {
          
       }, []);
 
-      useEffect(() => {
+
+
+    
+
+      const filterProduct=(array)=>{
+          if(selectValue === 'all') return product
+     
+          return array.filter((item)=>  item.category === selectValue)
+         
        
-
-        setFilteredProducts(product)
-    }, [product]);
-
-      const filterProduct=(e)=>{
-        const value = e.target.value
-        if(value=== 'all'){
-          setFilteredProducts(product)
-        }else{
-
-          const filteredProduct = product.filter((item)=>{
-             return item.category === value
-          })
-  
-          setFilteredProducts(filteredProduct)
-        }
       }
-      
 
+      const searchProduct=(array)=>{
+     
+    
+          if(searchValue === ' '){
+            return product
+          }else{
+    
+                      return  array.filter((item)=>  item.title.trim().toLowerCase().includes(searchValue.toLowerCase())  )
+
+          }
+          
+        }
+      
+      
+        
+       
+        useEffect(()=>{
+          setArrayToFilter(product)
+        },[product])
+        
+        
+      
  
   return (
-      <DataState.Provider value={{filterProduct,filteredProducts}}>
+      <DataState.Provider value={{filterProduct,searchProduct,arrayToFilter,setArrayToFilter,searchValue,selectValue,setSelectValue,setSearchValue,product}}>
       {children}
     </DataState.Provider>
   );

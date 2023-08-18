@@ -3,23 +3,46 @@ import Layout from "../../common/Layout/Layout";
 import axios from 'axios';
 import { useCart, useCartDispatcher } from "../../context/ContextProvider";
 import { useData } from "../../context/ContextData";
-import Select from "../../components/Select/Select";
 
 const Home = () => {
 
+  
    
   const [loading,setLoading] = useState(false)
   const dispatch = useCartDispatcher()
   const data = useData()
   const carts = useCart()
   
-  const {filterProduct,filteredProducts} = data
-  console.log(filteredProducts);
-
+  const {filterProduct,searchProduct,arrayToFilter,setArrayToFilter,searchValue,selectValue,setSelectValue,setSearchValue,product} = data
+  
+  
   const selectHandler=(e)=>{
 
-    filterProduct(e)
+   
+    setSelectValue(e.target.value)
   }
+
+  const inputHandler=(e)=>{
+
+   
+    setSearchValue(e.target.value)
+    
+  }
+
+
+ 
+
+ 
+  
+  useEffect(()=>{
+   let result = product
+   result = filterProduct(result)
+   result = searchProduct(result)
+   setArrayToFilter(result)
+   
+  
+  },[selectValue,searchValue])
+
 
 
   useEffect(()=>{
@@ -45,10 +68,8 @@ const Home = () => {
 
     }
     
-   
 
-
- 
+  
 
     return ( 
        
@@ -61,8 +82,10 @@ const Home = () => {
                 <option value="electronics">electronic</option>
                 <option value="jewelery">jewerly</option>
             </select>
+
+            <input type="text" onChange={(e)=> inputHandler(e)} />
           <div className="mt-[50px] grid  gap-10 grid-auto-fit px-[10%]  ">
-          { filteredProducts.map((item)=>{
+          {arrayToFilter && arrayToFilter.map((item)=>{
                return(
                 <div key={item.id} className="shadow shadow-xl transform  duration-200 hover:scale-110 my-[20px] bg-white flex flex-col items-center justify-center  pt-[10%] rounded-[10px]">
                     <div className="p-[20px] h-[300px]">
