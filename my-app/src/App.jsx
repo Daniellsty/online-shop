@@ -7,6 +7,7 @@ import DataProvider from './context/ContextData';
 import Product from './pages/Products/Product';
 import Home from './pages/Home/Home';
 import Login from './pages/Login/Login';
+import ContactUs from './pages/ContactUs/ContactUs';
 
 function App() {
   
@@ -18,12 +19,12 @@ function App() {
 
     <Router>
     <Routes>
-      <Route path="/home" element={<Home  />} />
+      <Route path="/" element={<Home  />} />
       <Route path="/cart" element={<Cart  />} />
       <Route path="/singup" element={<SingUp />} />
       <Route path="/login" element={<Login />} />
       <Route path="/product" element={<Product />} />
-      <Route path="/aboutus" element={<Product />} />
+      <Route path="/contactus" element={<ContactUs />} />
       
     </Routes>
 </Router>

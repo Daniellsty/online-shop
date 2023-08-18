@@ -36,7 +36,7 @@ const Navigation = () => {
                 <ul className="flex  justify-between items-center">
                           
 
-                            <NavLink  to='/home' >
+                            <NavLink  to='/' >
                         <li className="p-2 rounded hover:bg-white">
                               Home
                         </li>
@@ -61,9 +61,9 @@ const Navigation = () => {
                            
                         </li>
                             </NavLink>
-                            <NavLink to='/aboutus'  >
+                            <NavLink to='/contactus'  >
                         <li className="hidden sm:block  p-2 rounded hover:bg-white">
-                             <p>about us</p>
+                             <p>contact us</p>
                            
                         </li>
                             </NavLink>
@@ -94,7 +94,7 @@ const Navigation = () => {
                                     <ul className="mt-10 flex flex-col items-start ml-5 z-10">
                         <li className="my-2 flex items-center ">
                             <AiFillHome className="mr-3"/>
-                            <NavLink  to='/home' >
+                            <NavLink  to='/' >
                                 <p className="  leading-12 text-center   rounded">home</p>
                             </NavLink>
                         </li>
@@ -124,8 +124,8 @@ const Navigation = () => {
                         </li>
                         <li className="my-2 flex items-center">
                             <HiInformationCircle  className="mr-2 "/>
-                            <NavLink to='/about us'>
-                             <p className="leading-10 text-center hover:cursor-pointer ">about us</p>
+                            <NavLink to='/contactus'>
+                             <p className="leading-10 text-center hover:cursor-pointer ">contact us</p>
                             </NavLink>
                            
                         </li>

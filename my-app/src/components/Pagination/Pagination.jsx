@@ -36,7 +36,7 @@ const Pagination=()=> {
 
   
   useEffect(()=>{
-      console.log(data);
+    
 
       setPerPage(perPage)
       setArrayToFilter()
