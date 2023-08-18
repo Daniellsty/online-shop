@@ -71,22 +71,25 @@ const SingUpForm = () => {
    
 
   return (
-    <div>
-      <form onSubmit={formik.handleSubmit} className="Form">
+    <div className='flex justify-center w-full my-10 '>
+
+    <div className='mx-auto border border-1 w-full rounded border-black p-10 mx-[10%]'>
+      <form onSubmit={formik.handleSubmit} className="flex flex-col">
         <Input formik={formik} label="name" name="name" />
         <Input formik={formik} label="phoneNumber" name="phoneNumber" />
         <Input formik={formik} label="Email" name="email" />
         <Input formik={formik} label="password" name="password" />
         <Input formik={formik} label="passConfirm" name="passConfirm" />
         
-        <button type="submit" disabled={!formik.isValid}>
+        <button className='w-[100px]  mt-5 h-10 bg-[#6d28d9] hover:cursor-pointer rounded  text-[#f6f6f6]' type="submit" disabled={!formik.isValid}>
           Submit
         </button>
-        {err ? <p style={{color:'red'}} >{err}</p> : null}
+      
       </form>
        <Link  to='/login' >
-       <p>already loged in ?</p>
+       <p className='mt-5 text-red-500'>already loged in ?</p>
        </Link>
+    </div>
     </div>
   );
 
