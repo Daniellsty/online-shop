@@ -4,6 +4,7 @@ import axios from 'axios';
 import { useCart, useCartDispatcher } from "../../context/ContextProvider";
 import { useData } from "../../context/ContextData";
 import Pagination from "../../components/Pagination/Pagination";
+import { ToastContainer, toast } from "react-toastify";
 
 const Product = () => {
 
@@ -56,9 +57,19 @@ const Product = () => {
             <div className="absolute top-[50%] left-[50%]"><h1 className="text-3xl font-bold">loading...</h1></div>
         )
     } 
+    const notify = () => toast.success('product added !', {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: false,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      });;
 
     const addToCart = (product)=>{
-
+      notify();
        dispatch({type:"ADD_TO_CART",cart:product})
 
     }
@@ -78,7 +89,18 @@ const Product = () => {
             <Layout>
             <div className="px-[9%]">
 
-          
+            <ToastContainer
+                  position="top-right"
+                  autoClose={5000}
+                  hideProgressBar={false}
+                  newestOnTop={false}
+                  closeOnClick
+                  rtl={false}
+                  pauseOnFocusLoss={false}
+                  draggable
+                  pauseOnHover
+                  theme="light"
+                />
            <form action="" className="py-5  item-center">
 
         <label htmlFor="countries" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select the category products </label>

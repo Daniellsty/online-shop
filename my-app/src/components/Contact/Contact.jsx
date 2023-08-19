@@ -8,7 +8,7 @@ const Contact = () => {
         const value = e.target.value
 
         setInput( {...input ,[e.target.name]:value} )
-        console.log(data);
+      
     }
     
     const sendHanlder=()=>{
@@ -22,7 +22,7 @@ const Contact = () => {
     <div>
       <div className="my-10">
         <div className="flex flex-col mx-5 max-w-[500px]">
-        <label className="my-2" htmlFor="name">family name</label>
+        <label className="my-2" htmlFor="name"> Name</label>
        <input onChange={changeHandler} value={input.name} name="name" className="rounded mx:w-1/2" id="name" type="text" />
 
 

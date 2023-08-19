@@ -57,9 +57,9 @@ const LoginForm = (Navigate) => {
   });
 
   return (
-    <div className='flex justify-center w-full my-10 '>
+    <div className='flex justify-center  w-full my-10 '>
 
-    <div className='mx-auto border border-1 w-full rounded border-black p-10 mx-[10%]'>
+    <div className=' border border-1 w-full rounded border-black p-10 mx-[10%]'>
       <form onSubmit={formik.handleSubmit} className="flex flex-col">
         <Input formik={formik} label="Email" name="email" />
         <Input formik={formik} label="password" name="password" />

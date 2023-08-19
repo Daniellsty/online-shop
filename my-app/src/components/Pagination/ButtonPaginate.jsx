@@ -20,7 +20,7 @@ const ButtonPaginate = ({paginate,currentPage,setNumber,perPage}) => {
               <div className=" text-center mx-[1%]"  key={number} >
               
                 <li className="list-none">
-                <button  onClick={()=> setNumber(number)}  className={ `${perPage === number ? 'text-slate-900 border-[2px] border-[#ece9e9]' :null } border rounded   mx-[5px] px-[10px] py-[5px]  bg-[#6d28d9] text-white`  }  >{number}</button>
+                <button  onClick={()=> setNumber(number)}  className={ `${perPage === number ? 'text-black border-[2px] border-[#ece9e9]' :null } border rounded   mx-[5px] px-[10px] py-[5px]  bg-[#6d28d9] text-white`  }  >{number}</button>
                 </li>
           
             

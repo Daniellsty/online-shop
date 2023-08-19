@@ -65,7 +65,7 @@ const CartSummary = () => {
           <h1>
             net price is {(carts.total).toFixed(2)}
           </h1>
-          <NavLink to='/signup'>
+          <NavLink to='/singup'>
 
           <button className="px-2 mt-5 h-10 bg-[#6d28d9] hover:cursor-pointer rounded  text-[#f6f6f6]">checkout</button>
           </NavLink>
